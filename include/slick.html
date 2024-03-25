@@ -1,0 +1,109 @@
+<!-- slick -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- 슬릭파일들 -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.snsSlide').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            speed:1000,
+            dots:true,
+            arrows:true,
+            responsive:[
+                {
+                breakpoint: 769,
+                settings: {
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    speed:1000,
+                    dots:true,
+                    arrows:false,
+                    centerMode: true,
+                    centerPadding: '20px'
+                }
+                }
+            ]   
+        });
+
+        $('.titleani').slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            speed:4000,
+            dots:true,
+            arrows:true,
+            responsive:[
+                {
+                    breakpoint: 1201,
+                    settings: {
+                        infinite: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 2000,
+                        speed:1000,
+                        dots:true,
+                        arrows:false
+                    }
+                },
+                {
+                    breakpoint: 769,
+                    settings: {
+                        infinite: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 2000,
+                        speed:1000,
+                        dots:true,
+                        arrows:false
+                    }
+                }
+            ]    
+        });
+    });
+</script>
+<!-- aside애니 -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("aside .wrap ul.list > li h3").hover(function(){
+            if($(window).width()>1200){
+                $("aside").addClass("sliding");
+                $(this).next().find(".listsub").show();
+                $(this).parent().siblings().find(".listsub").hide();
+                $(this).addClass("current");//노란표시
+                $(this).next().find(".listsub").addClass("wide");
+                $(this).parent().siblings().children("h3").removeClass("current");
+                $(this).parent().siblings().find(".listsub").hide().removeClass("wide");
+            }
+        });
+        //h3 a을 클릭하면 실행하시오
+        $("aside .wrap ul.list > li h3 a").click(function(){
+            // 마우스클릭한 요소 다음에 오는 것을 slideToggle하시오
+            $(this).parent().next().slideToggle();
+            $(this).parent().parent().siblings().children("div").slideUp();
+            return false;
+        });
+
+        $("aside").mouseleave(function(){
+            $("aside").removeClass("sliding");
+        });
+        //brand를 클릭하면 실행하시오
+        $("header .wrap nav>h2").click(function(){
+            //aside에 클래스를 토글하시오
+            $("aside").toggleClass("asideSliding");
+            $("header .wrap nav .wgnb").removeClass("wgnbShow");
+        });
+
+    });
+</script>	
